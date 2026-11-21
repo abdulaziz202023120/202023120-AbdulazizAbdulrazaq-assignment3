@@ -115,9 +115,9 @@ I used **Claude (Anthropic)** in the Claude desktop app. It read the assignment 
 with me, planned the features on top of my Assignment 2 code, wrote the code, tests and documentation
 drafts, and ran the automated checks and Lighthouse. I set the direction, kept the content to my real
 work, and reviewed every file before it was uploaded. AI-assisted commits carry an `Assisted-by`
-trailer, except five early commits (this README and four SVG images) where the GitHub web editor dropped it; that help is declared
+trailer, except a few commits (listed in the usage report) where the GitHub web editor dropped it; that help is declared
 in the usage log. The full log and my declaration are in [`docs/ai-usage-report.md`](docs/ai-usage-report.md);
-the unedited conversation and the AI's first drafts are in the evidence ZIP submitted on Blackboard.
+the conversation messages and an earlier snapshot of the files are in the evidence ZIP submitted on Blackboard.
 
 ## Author
 

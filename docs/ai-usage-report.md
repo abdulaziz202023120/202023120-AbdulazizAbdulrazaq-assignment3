@@ -143,10 +143,11 @@ Key points from the AI output that I can explain:
 
 ## 7. Declaration
 
-I declare that this report and the attached evidence document all of my AI use in this assignment, with
-complete and unedited conversations, and that I understand and can explain all the code I submitted. I
-understand that undeclared AI use or a false declaration will be treated as plagiarism according to KFUPM
-regulations.
+I declare that this report and the attached evidence document all of my AI use in this assignment. The
+evidence contains every message of my conversation with Claude about this assignment, word for word; for the
+early part of the chat the tool actions are only summarised, as the README inside the evidence explains. I
+understand and can explain all the code I submitted. I understand that undeclared AI use or a false
+declaration will be treated as plagiarism according to KFUPM regulations.
 
 **Name:** Abdulaziz Abdulrazaq
 **Student ID:** 202023120

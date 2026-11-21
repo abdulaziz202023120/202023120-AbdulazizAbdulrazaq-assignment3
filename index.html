@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Abdulaziz Abdulrazaq, Industrial and Systems Engineering student at KFUPM.">
+  <title>Abdulaziz Abdulrazaq | Portfolio</title>
+  <link rel="icon" href="assets/images/profile.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://api.github.com">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Apply the saved theme before first paint to avoid a flash of the wrong theme -->
+  <script>
+    try {
+      const saved = localStorage.getItem("theme");
+      if (saved) document.documentElement.setAttribute("data-theme", saved);
+    } catch (e) { /* storage blocked: keep the default theme */ }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Header / navigation ===== -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#about" class="logo">AA<span>.</span></a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#github">GitHub</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark theme" title="Toggle theme">
+            <span class="icon-moon" aria-hidden="true">&#9790;</span>
+            <span class="icon-sun" aria-hidden="true">&#9728;</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ===== About ===== -->
+    <section id="about" class="hero container">
+      <div class="hero-text">
+        <p class="greeting" id="greeting">Hello!</p>
+        <h1>I'm <span class="accent">Abdulaziz Abdulrazaq</span></h1>
+        <p class="tagline">Industrial engineer who turns messy processes into simple systems.</p>
+        <p class="intro">
+          I am a final-year Industrial and Systems Engineering student at King Fahd University of
+          Petroleum &amp; Minerals (KFUPM). I enjoy analysing how work really flows, finding where time and
+          money are lost, and building tools, from spreadsheets to web apps, that make the fix stick.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View my work</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+
+        <!-- Remembered visitor name (saved in localStorage) -->
+        <div class="visitor">
+          <form id="visitorForm" class="visitor-form" novalidate>
+            <label for="visitorName">Your name (optional)</label>
+            <div class="visitor-row">
+              <input type="text" id="visitorName" name="visitorName" maxlength="30" autocomplete="given-name" placeholder="So I can greet you next time">
+              <button type="submit" class="btn btn-ghost btn-small">Save</button>
+            </div>
+            <small class="error" id="visitorError" aria-live="polite"></small>
+          </form>
+          <p class="visitor-welcome" id="visitorWelcome" hidden>
+            Your name is saved on this device.
+            <button type="button" class="link-button" id="visitorClear">Not you? Forget my name</button>
+          </p>
+        </div>
+
+        <ul class="stats" aria-label="Quick facts">
+          <li><strong id="countdownDays">--</strong><span id="countdownLabel">days left in 2026</span></li>
+          <li><strong id="repoCount">--</strong><span>public repositories</span></li>
+          <li><strong id="siteTimer">00:00</strong><span>time on this page</span></li>
+        </ul>
+      </div>
+      <div class="hero-image">
+        <img src="assets/images/profile.svg" alt="Illustrated avatar with the initials AA" width="280" height="280">
+      </div>
+    </section>
+
+    <!-- ===== Who is visiting? (different content for each choice) ===== -->
+    <section id="audience" class="section container reveal" aria-labelledby="audienceTitle">
+      <h2 class="section-title" id="audienceTitle">Where should you start?</h2>
+      <p class="section-lead">Choose who you are and I will point you to the most useful parts of this page.</p>
+
+      <div class="audience-picker" role="group" aria-label="Choose your view">
+        <button type="button" class="chip" data-audience="recruiter" aria-pressed="false">Recruiter</button>
+        <button type="button" class="chip" data-audience="professor" aria-pressed="false">Professor</button>
+        <button type="button" class="chip" data-audience="client" aria-pressed="false">Client</button>
+      </div>
+
+      <div class="audience-panel" id="audiencePanel" aria-live="polite">
+        <p id="audienceText">Pick a view above to see what to look at first.</p>
+        <ul class="audience-links" id="audienceLinks"></ul>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section id="skills" class="section container reveal">
+      <h2 class="section-title">Skills</h2>
+      <ul class="skills-grid">
+        <li class="skill-card">
+          <h3>Operations &amp; Process</h3>
+          <p>Facility layout, capacity planning, process improvement, reliability analysis.</p>
+        </li>
+        <li class="skill-card">
+          <h3>Data &amp; Analysis</h3>
+          <p>Excel modelling, statistics, forecasting and inventory models.</p>
+        </li>
+        <li class="skill-card">
+          <h3>Web Development</h3>
+          <p>HTML, CSS, JavaScript, Git and GitHub.</p>
+        </li>
+        <li class="skill-card">
+          <h3>Product &amp; Entrepreneurship</h3>
+          <p>Founder of Optimal X; turning a need into a scoped product.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== Projects (filter by category AND sort, combined) ===== -->
+    <section id="projects" class="section container reveal">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="project-controls">
+        <div class="control">
+          <span class="control-label" id="categoryLabel">Category</span>
+          <div class="chip-row" role="group" aria-labelledby="categoryLabel" id="categoryChips">
+            <button type="button" class="chip active" data-category="all" aria-pressed="true">All</button>
+            <button type="button" class="chip" data-category="engineering" aria-pressed="false">Engineering</button>
+            <button type="button" class="chip" data-category="software" aria-pressed="false">Software</button>
+            <button type="button" class="chip" data-category="product" aria-pressed="false">Product</button>
+          </div>
+        </div>
+        <div class="control">
+          <label for="projectSort">Sort by</label>
+          <select id="projectSort">
+            <option value="default">Featured order</option>
+            <option value="name">Name (A to Z)</option>
+            <option value="category">Category</option>
+          </select>
+        </div>
+      </div>
+      <p class="repo-status" id="projectStatus" role="status" aria-live="polite"></p>
+
+      <div class="projects-grid" id="projectGrid">
+        <article class="project-card" data-category="engineering" data-order="1" data-name="Intelligent Inventory Management for SMEs">
+          <img src="assets/images/project-inventory.svg" alt="Placeholder illustration of warehouse shelves and a stock chart" width="400" height="225" loading="lazy">
+          <div class="project-body">
+            <h3>Intelligent Inventory Management for SMEs</h3>
+            <p>My senior design project at KFUPM, built by a team from three departments (ISE, ICS and ISOM).
+               The system gives small and medium businesses smart stock alerts and decision support.</p>
+            <ul class="tags"><li>Forecasting</li><li>Inventory models</li><li>Simulation</li><li>Senior project</li></ul>
+
+            <button class="details-toggle" type="button" aria-expanded="false" aria-controls="details-inventory">
+              Show details <span class="chevron" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="project-details" id="details-inventory" hidden>
+              <dl>
+                <dt>My role</dt>
+                <dd>Inventory analytics: demand forecasting, safety stock, reorder point and EOQ.</dd>
+                <dt>Methods</dt>
+                <dd>Time-series forecasting and Monte Carlo simulation to compare inventory policies.</dd>
+                <dt>Status</dt>
+                <dd>In progress (Fall 2026).</dd>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="product" data-order="2" data-name="Ala Makth">
+          <img src="assets/images/project-quran.svg" alt="Placeholder illustration of an open book and student progress bars" width="400" height="225" loading="lazy">
+          <div class="project-body">
+            <h3>Ala Makth (<span lang="ar" dir="rtl">على مكث</span>)</h3>
+            <p>A non-profit management system for Qur'an memorization associations, developed at my company
+               Optimal X. It will be offered to associations free of charge.</p>
+            <ul class="tags"><li>Non-profit</li><li>Product design</li><li>Optimal X</li><li>In progress</li></ul>
+
+            <button class="details-toggle" type="button" aria-expanded="false" aria-controls="details-quran">
+              Show details <span class="chevron" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="project-details" id="details-quran" hidden>
+              <dl>
+                <dt>What it does</dt>
+                <dd>Daily administration of study circles, students and teachers, plus a diagnostic view of each student's progress.</dd>
+                <dt>My role</dt>
+                <dd>Founder of Optimal X; I lead the product.</dd>
+                <dt>Status</dt>
+                <dd>In progress.</dd>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="engineering" data-order="3" data-name="E-commerce Facility Layout">
+          <img src="assets/images/project-layout.svg" alt="Placeholder illustration of a floor plan with departments around a central warehouse block" width="400" height="225" loading="lazy">
+          <div class="project-body">
+            <h3>E-commerce Facility Layout</h3>
+            <p>My ISE 422 term project: arrange 19 departments around a central warehouse so that the daily
+               movement of materials is as short as possible, while the placement rules are respected.</p>
+            <ul class="tags"><li>Facility layout</li><li>Optimisation</li><li>Python</li><li>Course project</li></ul>
+
+            <button class="details-toggle" type="button" aria-expanded="false" aria-controls="details-layout">
+              Show details <span class="chevron" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="project-details" id="details-layout" hidden>
+              <dl>
+                <dt>Method</dt>
+                <dd>A flow matrix between departments, a ring layout around the warehouse, and simulated annealing in Python to search for a low flow-distance cost.</dd>
+                <dt>Result so far</dt>
+                <dd>All placement and boundary checks pass, and the flow-distance cost is about 33% lower than my first hand-made layout under the same flows. I do not claim it is the global optimum.</dd>
+                <dt>Status</dt>
+                <dd>In progress (Fall 2026).</dd>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="software" data-order="4" data-name="This portfolio website">
+          <img src="assets/images/project-site.svg" alt="Placeholder illustration of a browser window with a card grid" width="400" height="225" loading="lazy">
+          <div class="project-body">
+            <h3>This portfolio website</h3>
+            <p>The page you are reading, built for SWE 363 with plain HTML, CSS and JavaScript. It reads my
+               public repositories from the GitHub API and keeps small preferences on your device.</p>
+            <ul class="tags"><li>JavaScript</li><li>GitHub API</li><li>Accessibility</li><li>SWE 363</li></ul>
+
+            <button class="details-toggle" type="button" aria-expanded="false" aria-controls="details-site">
+              Show details <span class="chevron" aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="project-details" id="details-site" hidden>
+              <dl>
+                <dt>Features</dt>
+                <dd>Live repository list with search, language filter and sort; language mix and recent activity; project filters; audience view; saved theme and name; validated contact form.</dd>
+                <dt>Status</dt>
+                <dd>Assignment 3 version, Fall 2026.</dd>
+              </dl>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="empty-note" id="projectEmpty" hidden>No projects match this filter.</p>
+    </section>
+
+    <!-- ===== GitHub repositories (fetched from the public GitHub API) ===== -->
+    <section id="github" class="section container reveal">
+      <h2 class="section-title">Code on GitHub</h2>
+      <p class="section-lead">My public repositories and recent activity, loaded live from the GitHub API.</p>
+
+      <div class="repo-controls" role="search">
+        <div class="control">
+          <label for="repoSearch">Search</label>
+          <input type="search" id="repoSearch" placeholder="Name or description…" autocomplete="off">
+        </div>
+        <div class="control">
+          <label for="repoLanguage">Language</label>
+          <select id="repoLanguage">
+            <option value="all">All languages</option>
+          </select>
+        </div>
+        <div class="control">
+          <label for="repoSort">Sort by</label>
+          <select id="repoSort">
+            <option value="updated">Recently updated</option>
+            <option value="name">Name (A to Z)</option>
+            <option value="stars">Stars</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="repo-status" id="repoStatus" role="status" aria-live="polite"></p>
+      <ul class="repo-grid" id="repoList" aria-label="GitHub repositories"></ul>
+
+      <div class="github-extras">
+        <div class="panel">
+          <h3>Language mix</h3>
+          <ul class="lang-bars" id="langBars" aria-label="Share of repositories by language"></ul>
+        </div>
+        <div class="panel">
+          <h3>Recent activity</h3>
+          <p class="repo-status" id="activityStatus" role="status" aria-live="polite"></p>
+          <ul class="activity-list" id="activityList" aria-label="Recent GitHub activity"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="section container reveal">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-lead">Have a question or an idea? Send me a message. The Send button turns on when every check passes, and your draft is saved on this device until you send it.</p>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+          <small class="error" id="nameError" aria-live="polite"></small>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+          <small class="error" id="emailError" aria-live="polite"></small>
+        </div>
+        <div class="field">
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic" required>
+            <option value="">Choose a topic…</option>
+            <option value="question">A question about my work</option>
+            <option value="collaboration">A collaboration or project</option>
+            <option value="feedback">Feedback on this site</option>
+          </select>
+          <small class="error" id="topicError" aria-live="polite"></small>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" maxlength="1000" required></textarea>
+          <div class="field-meta">
+            <small class="error" id="messageError" aria-live="polite"></small>
+            <small class="char-count" id="charCount">0 / 1000</small>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="sendButton" disabled>Send message</button>
+        <p class="form-hint" id="formHint">Complete every field correctly to turn on the Send button.</p>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Abdulaziz Abdulrazaq</p>
+      <a href="https://github.com/abdulaziz202023120" target="_blank" rel="noopener">GitHub</a>
+      <a href="#about" class="back-to-top">Back to top &uarr;</a>
+    </div>
+  </footer>
+
+  <noscript><p class="noscript">This portfolio uses JavaScript for the GitHub data, filters and contact form. The rest of the page still works.</p></noscript>
+  <script src="js/script.js" defer></script>
+</body>
+</html>

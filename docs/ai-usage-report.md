@@ -77,9 +77,10 @@ I did not use Copilot, Cursor, ChatGPT or any other AI tool for this assignment.
 - The evidence ZIP holds an earlier snapshot of the files, saved during the session (`artifacts/1-earlier-snapshot/`),
   next to the version in this repository (`artifacts/2-submitted-version/`). The very first drafts were overwritten
   while working and were not kept as separate files, so the ZIP README lists the main changes in words.
-- AI-assisted commits have an `Assisted-by: Claude (claude-sonnet-5-5)` line in their message. Five early commits
-  (the first `README.md` and four SVG images) lack it, because the GitHub web editor dropped my message text; that
-  help is declared in this log (A04, A06).
+- AI-assisted commits have an `Assisted-by: Claude (claude-sonnet-5-5)` line in their message. Some commits lack it,
+  because the GitHub web editor dropped my message text: the first `README.md` commit (56427ac), a later `README.md`
+  fix (bfc2558) and the four SVG image commits (ac337c7, a96df70, e03874d, 05ba2c3). Any other commit without the line
+  is covered the same way. All of that help is declared in this log (A04, A06).
 - I read the code and the technical documentation until I could explain each feature (section 6).
 - I used no code from classmates, and no other AI tool.
 
@@ -95,7 +96,7 @@ I did not use Copilot, Cursor, ChatGPT or any other AI tool for this assignment.
 | A05 | Claude | 2026-11-21 | Automated checks | `tests/check_site.py` | Ran it until all 48 checks passed; read what each check proves. |
 | A06 | Claude | 2026-11-21 | Documentation drafts and a final rubric check that added the compatibility section and the sections of this report | `README.md`, `docs/technical-documentation.md`, `docs/ai-usage-report.md` | Checked every number against the real runs. I made sure this report lists only what actually happened. |
 
-The AI evidence (the conversation messages, unedited, and the files from before my final edits) is
+The AI evidence (the conversation messages and the files from before my final edits) is
 in `202023120-AbdulazizAbdulrazaq-assignment3-ai-evidence.zip`, submitted on Blackboard with the repository
 link and not committed to this repository.
 
